@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Personal finance</p>
+      <h1>Track daily spending with a local Flask app.</h1>
+      <p class="intro">The project is ready for expense listing, add, and delete features.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Planned Categories</h2>
+    <div class="category-grid" aria-label="Expense categories">
+      {% for category in categories %}
+        <span class="category-chip">{{ category }}</span>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
