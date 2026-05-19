@@ -12,11 +12,22 @@
         <a class="brand" href="{{ url_for('index') }}">Expense Tracker</a>
         <div class="nav-links" aria-label="Primary navigation">
           <a href="{{ url_for('index') }}">Expenses</a>
+          <a class="nav-button" href="{{ url_for('add_expense') }}">Add Expense</a>
         </div>
       </nav>
     </header>
 
     <main class="page">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-stack" role="status" aria-live="polite">
+            {% for category, message in messages %}
+              <div class="flash flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
       {% block content %}{% endblock %}
     </main>
   </body>

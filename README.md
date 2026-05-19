@@ -14,6 +14,11 @@ The app will use local SQLite storage and support:
 The home page displays all saved expenses in newest-first order with the title,
 category, date, amount, and a total spending summary.
 
+## Add Expense
+
+Use the `Add Expense` page to save a title, amount, date, and one of the
+supported categories to the local SQLite database.
+
 ## Setup
 
 ```powershell
