@@ -6,6 +6,7 @@
       <p class="eyebrow">Personal finance</p>
       <h1>Track daily spending clearly.</h1>
       <p class="intro">Review every saved expense by date, category, title, and amount.</p>
+      <a class="primary-link" href="{{ url_for('add_expense') }}">Add Expense</a>
     </div>
     <div class="summary-box" aria-label="Expense summary">
       <span>Total Spent</span>
@@ -50,7 +51,8 @@
     {% else %}
       <div class="empty-state">
         <h3>No expenses yet</h3>
-        <p>Saved expenses will appear here after the add expense feature is available.</p>
+        <p>Add your first expense to start tracking spending by date and category.</p>
+        <a class="primary-link" href="{{ url_for('add_expense') }}">Add Expense</a>
       </div>
     {% endif %}
   </section>
