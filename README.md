@@ -9,6 +9,11 @@ The app will use local SQLite storage and support:
 - Deleting expenses
 - Categories for Food, Travel, Utilities, Needs, Wants, and Savings
 
+## Expense List
+
+The home page displays all saved expenses in newest-first order with the title,
+category, date, amount, and a total spending summary.
+
 ## Setup
 
 ```powershell

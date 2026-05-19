@@ -4,17 +4,54 @@
   <section class="hero">
     <div>
       <p class="eyebrow">Personal finance</p>
-      <h1>Track daily spending with a local Flask app.</h1>
-      <p class="intro">The project is ready for expense listing, add, and delete features.</p>
+      <h1>Track daily spending clearly.</h1>
+      <p class="intro">Review every saved expense by date, category, title, and amount.</p>
+    </div>
+    <div class="summary-box" aria-label="Expense summary">
+      <span>Total Spent</span>
+      <strong>Rs. {{ "%.2f"|format(total_amount) }}</strong>
     </div>
   </section>
 
   <section class="panel">
-    <h2>Planned Categories</h2>
-    <div class="category-grid" aria-label="Expense categories">
-      {% for category in categories %}
-        <span class="category-chip">{{ category }}</span>
-      {% endfor %}
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Expenses</p>
+        <h2>All Expenses</h2>
+      </div>
+      <span class="count-pill">{{ expenses|length }} saved</span>
     </div>
+
+    {% if expenses %}
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th class="amount-cell">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for expense in expenses %}
+              <tr>
+                <td data-label="Title">{{ expense["title"] }}</td>
+                <td data-label="Category">
+                  <span class="category-chip">{{ expense["category"] }}</span>
+                </td>
+                <td data-label="Date">{{ expense["expense_date"] }}</td>
+                <td data-label="Amount" class="amount-cell">Rs. {{ "%.2f"|format(expense["amount"]) }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <h3>No expenses yet</h3>
+        <p>Saved expenses will appear here after the add expense feature is available.</p>
+      </div>
+    {% endif %}
   </section>
 {% endblock %}
