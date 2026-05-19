@@ -69,6 +69,16 @@ def create_expense(title, amount, expense_date, category):
         )
 
 
+def remove_expense(expense_id):
+    init_db()
+    with get_connection() as connection:
+        cursor = connection.execute(
+            "DELETE FROM expenses WHERE id = ?",
+            (expense_id,),
+        )
+        return cursor.rowcount
+
+
 @app.route("/")
 def index():
     expenses = get_expenses()
@@ -79,6 +89,16 @@ def index():
         expenses=expenses,
         total_amount=total_amount,
     )
+
+
+@app.post("/delete/<int:expense_id>")
+def delete_expense(expense_id):
+    deleted_count = remove_expense(expense_id)
+    if deleted_count:
+        flash("Expense deleted successfully.", "success")
+    else:
+        flash("Expense could not be found.", "error")
+    return redirect(url_for("index"))
 
 
 @app.route("/add", methods=["GET", "POST"])

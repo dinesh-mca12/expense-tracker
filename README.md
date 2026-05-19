@@ -19,6 +19,11 @@ category, date, amount, and a total spending summary.
 Use the `Add Expense` page to save a title, amount, date, and one of the
 supported categories to the local SQLite database.
 
+## Delete Expense
+
+Each saved row includes a delete action that removes the expense from local
+SQLite storage and returns to the updated expense list.
+
 ## Setup
 
 ```powershell

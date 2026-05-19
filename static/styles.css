@@ -96,6 +96,20 @@ button:hover {
   color: #ffffff;
 }
 
+.danger-button {
+  min-height: 36px;
+  padding: 7px 12px;
+  background: var(--danger-bg);
+  border-color: #f4b7b2;
+  color: var(--danger);
+}
+
+.danger-button:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #ffffff;
+}
+
 .secondary-link {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -274,6 +288,14 @@ tbody tr:last-child td {
   font-weight: 700;
 }
 
+.action-cell {
+  text-align: right;
+}
+
+.action-cell form {
+  display: inline-flex;
+}
+
 .empty-state {
   min-height: 180px;
   display: grid;
@@ -449,6 +471,10 @@ select:focus {
   }
 
   .amount-cell {
+    text-align: right;
+  }
+
+  .action-cell {
     text-align: right;
   }
 }
